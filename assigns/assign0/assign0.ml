@@ -12,7 +12,7 @@ fun fact(x: int): int =
 (*
 Assign0-1: 10 points
 Please find the first integer N such that the
-evaluation of fact(N) in SML/NJ yields an Overflow
+evaluation of fact(N) in OCaml yields an Overflow
 exception.
 *)
 
@@ -55,4 +55,4 @@ fun stringrev(cs: string): string
 
 (* ****** ****** *)
 
-(* end of [CS320-2023-Spring-assign0.ml] *)
+(* end of [CS320-2023-Fall-assign0.ml] *)
