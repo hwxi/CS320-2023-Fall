@@ -1,13 +1,24 @@
+(* ****** ****** *)
+
 #use "./../assign0.ml";;
 
+(* ****** ****** *)
+
 let rec
-fact(n:int) =
-  if n > 0 then n * fact(n-1) else 1
+fact(x: int): int =
+if x > 0 then fact(x-1) * x  else 1
 ;;
 
-let fact10 = fact(10)
-;;
+(* ****** ****** *)
 
-let fact100 = fact(100)
-;;
+let rec
+myloop(x: int): int =
+if fact(x) = 0 then x else myloop(x+1)
 
+(* ****** ****** *)
+let myans = myloop(0)
+(* ****** ****** *)
+;;
+(* ****** ****** *)
+
+(* end of [CS320-2023-Fall-assign0-1.ml] *)
