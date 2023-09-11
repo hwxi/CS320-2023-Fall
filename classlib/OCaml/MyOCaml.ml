@@ -14,6 +14,37 @@ let str(c0) = String.make 1 c0
 (* ****** ****** *)
 
 let
+char_islower(ch: char) =
+(ch >= 'a' && ch <= 'z')
+let
+char_isupper(ch: char) =
+(ch >= 'A' && ch <= 'Z')
+
+let
+char_isletter(ch: char) =
+(ch >= 'a' && ch <= 'z')
+||
+(ch >= 'A' && ch <= 'Z')
+
+(* ****** ****** *)
+
+let
+char_tolower(ch: char) =
+if
+char_isupper(ch)
+then
+chr(ord(ch) - ord('A') + ord('a')) else ch
+
+let
+char_toupper(ch: char) =
+if
+char_islower(ch)
+then
+chr(ord(ch) - ord('a') + ord('A')) else ch
+
+(* ****** ****** *)
+
+let
 char_of_digit
 (d0: int): char =
 let
@@ -39,7 +70,7 @@ let
 int1_foreach
 (n0:int)
 (work: int -> unit): unit =
-for i = 0 to n0 do work(i) done
+for i0 = 0 to n0-1 do work(i0) done
 
 (* ****** ****** *)
 
@@ -49,8 +80,8 @@ string_init = String.init;;
 (* ****** ****** *)
 
 let
-string_length
-(cs: string): int = String.length(cs)
+string_length = String.length
+;;
 let
 string_get_at
 (cs:string)(i0:int): char = String.get cs i0
@@ -66,6 +97,25 @@ string_init
  if i <= 0
  then c0 else string_get_at cs (i-1))
 ;;
+(* ****** ****** *)
+
+let
+string_toupper
+(cs: string): string =
+string_init
+(string_length(cs))
+(fun i0 ->
+ char_toupper(string_get_at(cs)(i0)))
+
+let
+string_tolower
+(cs: string): string =
+string_init
+(string_length(cs))
+(
+ fun i0 ->
+ char_tolower(string_get_at(cs)(i0)))
+
 (* ****** ****** *)
 
 let
