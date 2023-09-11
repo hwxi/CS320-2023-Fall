@@ -57,6 +57,17 @@ string_get_at
 (* ****** ****** *)
 
 let
+string_cons
+(c0: char)(cs: string): string =
+string_init
+(string_length(cs) + 1)
+(fun i ->
+ if i <= 0
+ then c0 else string_get_at cs (i-1))
+;;
+(* ****** ****** *)
+
+let
 string_foreach
 (cs: string)
 (work: char -> unit) =
@@ -152,14 +163,14 @@ foreach(xs)
 
 (* ****** ****** *)
 
-let
+let rec
 foreach_to_length
 ( foreach
 : 'xs -> ('x0 -> unit) -> unit)
 : ('xs -> int) =
 foldleft_to_length(foreach_to_foldleft(foreach))
-;;
-let
+
+and
 foldleft_to_length
 ( foldleft
 : 'xs -> int -> (int -> 'x0 -> int) -> int)
