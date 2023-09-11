@@ -43,7 +43,8 @@ for i = 0 to n0 do work(i) done
 
 (* ****** ****** *)
 
-let string_init = String.init;;
+let
+string_init = String.init;;
 
 (* ****** ****** *)
 
