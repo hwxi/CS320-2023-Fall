@@ -143,6 +143,19 @@ string_init
 (* ****** ****** *)
 
 let
+string_snoc
+(cs: string)(c0: char): string =
+let
+len = string_length(cs) in
+string_init
+(len + 1)
+(fun i ->
+ if i < len
+ then string_get_at (cs) (i) else c0)
+;;
+(* ****** ****** *)
+
+let
 string_toupper
 (cs: string): string =
 string_init
@@ -471,7 +484,7 @@ list_make_foreach
 (
 fun(xs, ys) work ->
 (list_foreach xs work; list_foreach ys work))
-
+;;
 let
 list_concat
 (xss: 'a list list): 'a list =
@@ -480,9 +493,9 @@ list_make_foreach
 (
 fun xss work ->
 list_foreach xss (fun xs -> list_foreach xs work))
-
+;;
 (* ****** ****** *)
-(* ****** ****** *)
+;;
 (* ****** ****** *)
 
 (* end of [CS320-2023-Fall-classlib-MyOCaml.ml] *)
