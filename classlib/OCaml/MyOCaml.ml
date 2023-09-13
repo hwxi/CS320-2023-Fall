@@ -484,4 +484,14 @@ list_foreach xss (fun xs -> list_foreach xs work))
 ;;
 (* ****** ****** *)
 
+let
+string_concat_list
+  (css: string list): string =
+string_make_fwork
+(
+fun work ->
+list_foreach css (fun cs -> string_foreach cs work))
+;;
+(* ****** ****** *)
+
 (* end of [CS320-2023-Fall-classlib-MyOCaml.ml] *)
