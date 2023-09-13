@@ -435,40 +435,30 @@ rforeach_to_foldright(string_rforeach)(cs)
 (* ****** ****** *)
 
 let
-list_make_foreach
-( xs: 'xs)
-( foreach
-: ('xs, 'x0) foreach): 'x0 list =
+list_make_fwork
+( fwork
+: ('x0 -> unit) -> unit): 'x0 list =
 (
-  foreach_to_listize(foreach)(xs))
-let
-list_make_rforeach
-( xs: 'xs)
-( rforeach
-: ('xs, 'x0) rforeach): 'x0 list =
-(
-  foreach_to_rlistize(rforeach)(xs))
+foreach_to_listize(fun() -> fwork)())
 ;;
 (* ****** ****** *)
 
 let
-string_make_foreach
-( xs: 'xs)
-( foreach
-: ('xs, char) foreach): string =
+string_make_fwork
+( fwork
+: (char -> unit) -> unit): string =
 let
 xs =
-foreach_to_arrnize(foreach)(xs) in
+foreach_to_arrnize(fun() -> fwork)() in
 String.init (Array.length(xs)) (fun i -> xs.(i))
 ;;
 let
-string_make_rforeach
-( xs: 'xs)
-( rforeach
-: ('xs, char) rforeach): string =
+string_make_rfwork
+( rfwork
+: (char -> unit) -> unit): string =
 let
 xs =
-foreach_to_rarrnize(rforeach)(xs) in
+foreach_to_rarrnize(fun() -> rfwork)() in
 String.init (Array.length(xs)) (fun i -> xs.(i))
 ;;
 (* ****** ****** *)
@@ -479,22 +469,18 @@ let
 list_append
 (xs: 'a list)
 (ys: 'a list): 'a list =
-list_make_foreach
-(xs,ys)
+list_make_fwork
 (
-fun(xs, ys) work ->
+fun work ->
 (list_foreach xs work; list_foreach ys work))
 ;;
 let
 list_concat
 (xss: 'a list list): 'a list =
-list_make_foreach
-( xss )
+list_make_fwork
 (
-fun xss work ->
+fun work ->
 list_foreach xss (fun xs -> list_foreach xs work))
-;;
-(* ****** ****** *)
 ;;
 (* ****** ****** *)
 
