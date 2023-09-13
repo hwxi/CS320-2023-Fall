@@ -438,8 +438,49 @@ let
 list_make_fwork
 ( fwork
 : ('x0 -> unit) -> unit): 'x0 list =
-(
-foreach_to_listize(fun() -> fwork)())
+let
+res = ref([]) in
+let
+work(x0) = (res := (x0 :: !res))
+in(*let*)
+  ( fwork(work); list_reverse(!res) )
+;;
+let
+list_make_filter
+( test: 'x0 -> bool)
+( fwork
+: ('x0 -> unit) -> unit): 'x0 list =
+let
+res = ref([]) in
+let
+work(x0) =
+if
+test(x0) then (res := (x0 :: !res))
+in(*let*)
+  ( fwork(work); list_reverse(!res) )
+;;
+let
+list_rmake_fwork
+( fwork
+: ('x0 -> unit) -> unit): 'x0 list =
+let
+res = ref([]) in
+let
+work(x0) =
+(res := (x0 :: !res)) in (fwork(work); !res)
+;;
+let
+list_rmake_filter
+( test: 'x0 -> bool)
+( fwork
+: ('x0 -> unit) -> unit): 'x0 list =
+let
+res = ref([]) in
+let
+work(x0) =
+if
+test(x0) then
+(res := (x0 :: !res)) in (fwork(work); !res)
 ;;
 (* ****** ****** *)
 
@@ -447,18 +488,16 @@ let
 string_make_fwork
 ( fwork
 : (char -> unit) -> unit): string =
-let
-xs =
-foreach_to_arrnize(fun() -> fwork)() in
+let xs =
+Array.of_list(list_make_fwork(fwork)) in
 String.init (Array.length(xs)) (fun i -> xs.(i))
 ;;
 let
-string_make_rfwork
-( rfwork
+string_rmake_fwork
+( fwork
 : (char -> unit) -> unit): string =
-let
-xs =
-foreach_to_rarrnize(fun() -> rfwork)() in
+let xs =
+Array.of_list(list_rmake_fwork(fwork)) in
 String.init (Array.length(xs)) (fun i -> xs.(i))
 ;;
 (* ****** ****** *)
