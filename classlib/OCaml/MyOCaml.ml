@@ -91,7 +91,7 @@ type
 ('xs, 'x0, 'y0) map_list =
 'xs -> ('x0 -> 'y0) -> 'y0 list
 type
-('xs, 'x0, 'y0) maprev_list =
+('xs, 'x0, 'y0) map_rlist =
 'xs -> ('x0 -> 'y0) -> 'y0 list
 
 type
@@ -299,20 +299,20 @@ foreach_to_map_list
 : ('xs, 'x0, 'y0) map_list =
 fun(xs)(fopr) ->
 list_reverse
-(foreach_to_maprev_list(foreach)(xs)(fopr))
+(foreach_to_map_rlist(foreach)(xs)(fopr))
 
 and
-foreach_to_maprev_list
+foreach_to_map_rlist
 ( foreach
 : ('xs, 'x0) foreach)
-: ('xs, 'x0, 'y0) maprev_list =
+: ('xs, 'x0, 'y0) map_rlist =
 fun
 (xs)(fopr) ->
 let
 res = ref([]) in
 foreach(xs)
 (fun(x0) -> res := fopr(x0) :: !res); !res
-;;(* end of [foreach_to_maprev_list]: let *)
+;;(* end of [foreach_to_map_rlist]: let *)
 
 (* ****** ****** *)
 
@@ -330,7 +330,7 @@ foreach_to_rlistize
 : ('xs, 'x0) foreach
 ) : ('xs, 'x0) rlistize =
 fun(xs) ->
-foreach_to_maprev_list(foreach)(xs)(fun x -> x)
+foreach_to_map_rlist(foreach)(xs)(fun x -> x)
 
 (* ****** ****** *)
 
