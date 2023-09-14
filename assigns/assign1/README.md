@@ -1,6 +1,6 @@
 # CS320-2023-Fall
 
-## Assign0: the 1st assignment
+## Assign1: the 1st assignment
 
 - Out: Thu, the 14th of September at 12:00am
 - Due: Wed, the 20th of September at 11:59pm
