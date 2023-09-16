@@ -61,7 +61,7 @@ For instance, 123465789 is not 132-avoid since the
 subsequence 165 is 132-like.
 
 Please implement a function string_avoid_132 that
-check if a given string is 132-avoid; the function
+checks if a given string is 132-avoid; the function
 returns true if and only if the given string is 132-
 avoid.
 
@@ -79,9 +79,10 @@ represented by ds1 and ds2. Note that the returned
 string should contain no leading zeros. (And we
 use the empty string to represent the number zero).
 
-fun intrep(ds1: int)(ds2: int): int					     
+fun
+intrep_add(ds1: string)(ds2: string): string
 
-For instance, "6123" + "987" = "7110"
+For instance, intrep_add("1116123", "222987") = "3337110"
 
 Note that ds1 and ds2 can be arbitrarily long. Thus,
 converting ds1 and ds2 to integers can cause overflow.
@@ -131,7 +132,7 @@ For instance, 123465789 is not 132-avoid since the
 subsequence 1657 is 1324-like.
 
 Please implement a function string_avoid_1324 that
-check if a given string is 1324-avoid; the function
+checks if a given string is 1324-avoid; the function
 returns true if and only if the given string is 1324-
 avoid.
 
