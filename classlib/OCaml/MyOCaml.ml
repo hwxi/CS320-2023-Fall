@@ -7,25 +7,34 @@
 exception False;;
 (* ****** ****** *)
 
-(* ****** ****** *)
-let chr = Char.chr;;
-let ord = Char.code;;
-let str(c0) = String.make 1 c0;;
-(* ****** ****** *)
 
-(* ****** ****** *)
-let char_islower(ch: char) = (ch >= 'a' && ch <= 'z')
-let char_isupper(ch: char) = (ch >= 'A' && ch <= 'Z')
-let char_isletter(ch: char) = (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z')
-(* ****** ****** *)
+(** Return the character with the given ASCII code. **)
+let chr = Char.chr;;
+
+(** return the ASCII code of the argument **)
+let ord = Char.code;;
+
+(** make n c is a string of length n with each index holding the character c **)
+let str(c0) = String.make 1 c0;;
+
+(** checks if a character is lowercase **)
+let char_islower(ch: char) = (ch >= 'a' && ch <= 'z');;
+
+(** checks if a character is uppercase **)
+let char_isupper(ch: char) = (ch >= 'A' && ch <= 'Z');;
+
+(** checks if a character is a alphabetical letter **)
+let char_isletter(ch: char) = (ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z');;
 
 (** converts a character to lowercase if applicable **)
 let char_tolower(ch: char) =
   if char_isupper(ch) then chr(ord(ch) - ord('A') + ord('a')) else ch
+;;
 
 (** converts a character to uppercase if applicable **)
 let char_toupper(ch: char) =
   if char_islower(ch) then chr(ord(ch) - ord('a') + ord('A')) else ch
+;;
 
 (** converts int digit to a character **)
 let char_of_digit (d0: int): char =
@@ -43,16 +52,39 @@ let digit_of_char(ch: char): int =
 ;;(* end of [digit_of_char] *)
 
 (* ****** TYPE ANNOTATIONS ****** *)
+
+(** takes a collection 'xs and a predicate function ('x0 -> bool), and it returns a boolean value if all satisfy or not **)
 type ('xs, 'x0) forall = 'xs -> ('x0 -> bool) -> bool
+
+(** takes a generic collection 'xs and applies a function ('x0 -> unit) which may produce a side effect **)
 type ('xs, 'x0) foreach = 'xs -> ('x0 -> unit) -> unit
+
+(** takes a generic collection 'xs and applies a function ('x0 -> unit) which may produce a side effect in reverse order **)
 type ('xs, 'x0) rforeach = 'xs -> ('x0 -> unit) -> unit
+
+(** takes a generic type 'xs and returns a list of values of type 'x0 **)
 type ('xs, 'x0) listize = 'xs -> 'x0 list
+
+(** takes a generic type 'xs and returns an array of values of type 'x0 **)
 type ('xs, 'x0) arrnize = 'xs -> 'x0 array
+
+(** takes a generic type 'xs and returns a list of values of type 'x0 in reverse order **)
 type ('xs, 'x0) rlistize = 'xs -> 'x0 list
+
+(** takes a generic type 'xs and returns an array of values of type 'x0 in reverse order **)
 type ('xs, 'x0) rarrnize = 'xs -> 'x0 array
+
+(** takes a collection 'xs and a function ('x0 -> 'y0) for transforming elements of type 'x0 into elements of type 'y0, 
+    and it returns a list of the transformed elements. **)
 type ('xs, 'x0, 'y0) map_list = 'xs -> ('x0 -> 'y0) -> 'y0 list
+
+(** takes a collection 'xs and a function ('x0 -> 'y0) for transforming elements of type 'x0 into elements of type 'y0, 
+    and it returns a list of the transformed elements in reverse order. **)
 type ('xs, 'x0, 'y0) map_rlist = 'xs -> ('x0 -> 'y0) -> 'y0 list
+
+
 type ('xs, 'x0, 'r0) foldleft = 'xs -> 'r0 -> ('r0 -> 'x0 -> 'r0) -> 'r0
+
 type ('xs, 'x0, 'r0) foldright = 'xs -> 'r0 -> ('x0 -> 'r0 -> 'r0) -> 'r0
 (* ****** ****** *)
 
@@ -172,7 +204,7 @@ let rec list_rforeach(xs: 'a list) (work: 'a -> unit): unit =
   list_foreach(list_reverse(xs))(work)
 ;;
 
-(** he forall_to_foreach function takes a forall function and converts it into a foreach function that applies a 
+(** the forall_to_foreach function takes a forall function and converts it into a foreach function that applies a 
     given action to each element in the collection while ensuring that all elements are processed **)
 let forall_to_foreach(forall: ('xs, 'x0) forall): ('xs, 'x0) foreach =
   fun(xs)(work) -> let _ = forall(xs)(fun(x0) -> (work(x0); true)) in ()
@@ -330,7 +362,7 @@ let list_make_filter(test: 'x0 -> bool) ( fwork: ('x0 -> unit) -> unit): 'x0 lis
     in(*let*)(fwork(work); list_reverse(!res))
 ;;
 
-(** **)
+(** transforms the work done by fwork into a list in reverse order. **)
 let list_rmake_fwork(fwork: ('x0 -> unit) -> unit): 'x0 list =
   let res = ref([]) in
     let work(x0) = (res := (x0 :: !res)) in 
