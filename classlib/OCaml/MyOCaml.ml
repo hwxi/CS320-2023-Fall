@@ -104,8 +104,18 @@ let string_init = String.init;;
 (** length s is the length (number of bytes/characters) of s **)
 let string_length = String.length;;
 
-(** get s i is the character at index i in s. This is the same as writing s.[i] **)
+(** get_at s i is the character at index i in s. This is the same as writing s.[i] **)
 let string_get_at(cs:string)(i0:int): char = String.get cs i0;;
+
+(* ****** ****** *)
+
+(** get the first char *)
+let string_head(cs:string):char = string_get_at(cs)(0)
+(** get the rest of chars *)
+let string_tail(cs) =
+string_init(string_length(cs)-1)(fun i -> string_get_at(cs)(i+1))
+
+(* ****** ****** *)
 
 (** create a string c0+cs **)
 let string_cons(c0: char)(cs: string): string = 
@@ -354,20 +364,14 @@ let list_make_fwork(fwork: ('x0 -> unit) -> unit): 'x0 list =
     in(*let*)(fwork(work); list_reverse(!res) )
 ;;
 
-(** applies fwork to elements, accumulating those that pass the test into a list. 
-    The resulting list contains elements that satisfy the filter criteria, with their original order reversed. **)
-let list_make_filter(test: 'x0 -> bool) ( fwork: ('x0 -> unit) -> unit): 'x0 list =
-  let res = ref([]) in
-    let work(x0) = if test(x0) then (res := (x0 :: !res))
-    in(*let*)(fwork(work); list_reverse(!res))
-;;
-
 (** transforms the work done by fwork into a list in reverse order. **)
 let list_rmake_fwork(fwork: ('x0 -> unit) -> unit): 'x0 list =
   let res = ref([]) in
     let work(x0) = (res := (x0 :: !res)) in 
       (fwork(work); !res)
 ;;
+
+(* ****** ****** *)
 
 (** **)
 let list_rmake_filter(test: 'x0 -> bool)(fwork: ('x0 -> unit) -> unit): 'x0 list =
@@ -403,11 +407,23 @@ let list_concat(xss: 'a list list): 'a list =
   )
 ;;
 
+(* ****** ****** *)
+
+let string_filter
+(cs: string)(test: char -> bool) =
+string_make_fwork
+(fun work -> string_foreach(cs)(fun c -> if test(c) then work(c)))
+;;
+
+(* ****** ****** *)
+
 (** takes a list of strings and gives a string with the strings concatenated **)
 let string_concat_list(css: string list): string =
   string_make_fwork(
     fun work -> list_foreach css (fun cs -> string_foreach cs work)
   )
 ;;
+
+(* ****** ****** *)
 
 (* end of [CS320-2023-Fall-classlib-MyOCaml.ml] *)
