@@ -1,7 +1,8 @@
 (* ****** ****** *)
 (*
-  MyOCaml.ml is a library
-  built for CS320, Fall, 2023
+ MyOCaml.ml
+ is a class library
+ built for CS320, Fall, 2023
 *)
 (* ****** ****** *)
 exception False;;
