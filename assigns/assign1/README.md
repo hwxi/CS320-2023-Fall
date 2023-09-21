@@ -30,5 +30,4 @@ as follows:
 3. MySolution/assign1-3.ml // containing your solution to assign1-3
 4. MySolution/assign1-4.ml // containing your solution to assign1-4
 5. MySolution/assign1-5.ml // containing your solution to assign1-5
-5. MySolution/assign1-6.ml // containing your solution to assign1-6 // bonus
-
+6. MySolution/assign1-6.ml // containing your solution to assign1-6 // bonus
