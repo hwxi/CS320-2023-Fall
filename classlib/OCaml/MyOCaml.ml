@@ -365,20 +365,27 @@ let list_make_fwork(fwork: ('x0 -> unit) -> unit): 'x0 list =
     in(*let*)(fwork(work); list_reverse(!res) )
 ;;
 
-(** transforms the work done by fwork into a list in reverse order. **)
-let list_rmake_fwork(fwork: ('x0 -> unit) -> unit): 'x0 list =
+let list_make_filter(test: 'x0 -> bool)(fwork: ('x0 -> unit) -> unit): 'x0 list =
   let res = ref([]) in
-    let work(x0) = (res := (x0 :: !res)) in 
-      (fwork(work); !res)
+    let work(x0) =
+      if test(x0) then (res := (x0 :: !res))
+      in(*let*) (fwork(work); list_reverse(!res))
 ;;
 
 (* ****** ****** *)
 
-(** **)
+(** transforms the work done by fwork into a list in reverse order. **)
+let list_rmake_fwork(fwork: ('x0 -> unit) -> unit): 'x0 list =
+  let res = ref([]) in
+    let work(x0) = (res := (x0 :: !res)) in (fwork(work); !res)
+;;
+
 let list_rmake_filter(test: 'x0 -> bool)(fwork: ('x0 -> unit) -> unit): 'x0 list =
   let res = ref([]) in
     let work(x0) = if test(x0) then (res := (x0 :: !res)) in (fwork(work); !res)
 ;;
+
+(* ****** ****** *)
 
 (** The result of the entire expression is a string that represents the characters processed by the fwork function **)
 let string_make_fwork(fwork: (char -> unit) -> unit): string =
@@ -393,6 +400,8 @@ let string_rmake_fwork(fwork: (char -> unit) -> unit): string =
     Array.of_list(list_rmake_fwork(fwork)) 
   in String.init (Array.length(xs)) (fun i -> xs.(i))
 ;;
+
+(* ****** ****** *)
 
 (** appends two lists together: [1;2;3] [4;5;6] = [1;2;3;4;5;6]**)
 let list_append(xs: 'a list)(ys: 'a list): 'a list =
@@ -417,6 +426,12 @@ string_make_fwork
 ;;
 
 (* ****** ****** *)
+
+let string_append(xs: string)(ys: string): string =
+  string_make_fwork(
+    fun work -> (string_foreach xs work; string_foreach ys work)
+  )
+;;
 
 (** takes a list of strings and gives a string with the strings concatenated **)
 let string_concat_list(css: string list): string =
