@@ -71,7 +71,7 @@ class fnlist_iter:
 class fnlist_nil(fnlist):
     def __init__(self):
         self.ctag = 0
-        return None
+        # return None
 # end-of-class(fnlist_nil)
 
 class fnlist_cons(fnlist):
@@ -79,7 +79,7 @@ class fnlist_cons(fnlist):
         self.ctag = 1
         self.cons1 = cons1
         self.cons2 = cons2
-        return None
+        # return None
     def get_cons1(self):
         return self.cons1
     def get_cons2(self):
