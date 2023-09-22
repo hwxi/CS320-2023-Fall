@@ -125,6 +125,16 @@ foldleft_to_iforeach
 *)
 
 (* ****** ****** *)
+let rec
+list_foldleft
+(xs: 'a list)
+(r0: 'r0)(fopr: 'r0 -> 'a -> 'r0): 'r0 =
+match xs with
+| [] -> r0
+| (x1 :: xs) ->
+  list_foldleft(xs)(fopr(r0)(x1))(fopr)
+;;
+(* ****** ****** *)
 
 (*
 //
