@@ -149,7 +149,7 @@ string_sepjoin_list
 For instance,
 string_sepjoin_list(",")(["1","22","333"]) = "1,22,333"
 For instance,
-string_sepjoin_list(";;")(["11","22","33"]) = "11;;22;;31"
+string_sepjoin_list(";;")(["11","22","33"]) = "11;;22;;33"
 *)
 
 (* ****** ****** *)
