@@ -109,7 +109,7 @@ type
 ('xs, 'x0) iforeach = 'xs -> (int -> 'x0 -> unit) -> unit
 
 type
-('xs, 'x0, 'r0) foldleft = 'xs -> ('r0 -> 'x0 -> 'r0) -> 'r0
+('xs, 'x0, 'r0) foldleft = 'xs -> 'r0 -> ('r0 -> 'x0 -> 'r0) -> 'r0
 
 (* ****** ****** *)
 
