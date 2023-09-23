@@ -238,13 +238,15 @@ let foreach_to_foldleft(foreach: ('xs, 'x0) foreach): 'xs -> 'r0 -> ('r0 -> 'x0 
 ;;(* end of [foreach_to_foldleft]: let *)
 
 (** **)
-let rec foreach_to_map_list(foreach: ('xs, 'x0) foreach): ('xs, 'x0, 'y0) map_list =
-  fun(xs)(fopr) -> list_reverse(foreach_to_map_rlist(foreach)(xs)(fopr)) 
-  and 
-  foreach_to_map_rlist(foreach: ('xs, 'x0) foreach): ('xs, 'x0, 'y0) map_rlist =
-    fun(xs)(fopr) -> 
-      let res = ref([]) in
-        foreach(xs)(fun(x0) -> res := fopr(x0) :: !res); !res
+let rec
+foreach_to_map_list(foreach: ('xs, 'x0) foreach): ('xs, 'x0, 'y0) map_list =
+fun(xs)(fopr) ->
+list_reverse(foreach_to_map_rlist(foreach)(xs)(fopr)) 
+and 
+foreach_to_map_rlist(foreach: ('xs, 'x0) foreach): ('xs, 'x0, 'y0) map_rlist =
+fun(xs)(fopr) -> 
+let res = ref([]) in
+foreach(xs)(fun(x0) -> res := fopr(x0) :: !res); !res
 ;;(* end of [foreach_to_map_rlist]: let *)
 
 (** **)
