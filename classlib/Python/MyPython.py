@@ -93,13 +93,19 @@ def fnlist_sing(x0):
 def fnlist_print(xs):
     nx = 0
     sep = "; "
-    print("[",end='')
+    print("fnlist[",end='')
     while(xs.ctag > 0):
         if (nx > 0):
             print(sep,end='')        
         print(xs.cons1,end='')
         nx = nx + 1; xs = xs.cons2
     print("]", end='')
+####################################################
+def fnlist_reverse(xs):
+    res = fnlist_nil()
+    for x1 in xs:
+        res = fnlist_cons(x1, res)
+    return res
 ####################################################
 
 ############### end of [CS320-2023-Fall-classlib-MyPython.py] ###############
