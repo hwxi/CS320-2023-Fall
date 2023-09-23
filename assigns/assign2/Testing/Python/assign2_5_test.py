@@ -17,5 +17,12 @@ assert(fnlist_make_fwork(lambda work: work(2)).cons1 == 2)
 assert(fnlist_make_fwork(lambda work: work(3)).cons1 == 3)
 assert(fnlist_make_fwork(lambda work: work(4)).cons1 == 4)
 ####################################################
+def fwork1(work):
+    for i in range(10):
+        work(i)
+####################################################
+for i, x in enumerate(fnlist_reverse(fnlist_make_fwork(fwork1))):
+    assert(i == 10 - 1 - x)
+####################################################
 print("Assign2-5-test passed!")
 ####################################################
