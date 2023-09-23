@@ -29,6 +29,6 @@ as follows:
 2. MySolution/OCaml/assign2-2.ml // containing your solution to assign2-2
 3. MySolution/OCaml/assign2-3.ml // containing your solution to assign2-3
 4. MySolution/OCaml/assign2-4.ml // containing your solution to assign2-4
-5. MySolution/Python/assign2-5.py // containing your solution to assign2-5
-6. MySolution/Python/assign2-6.py // containing your solution to assign2-6
+5. MySolution/Python/assign2_5.py // containing your solution to assign2-5
+6. MySolution/Python/assign2_6.py // containing your solution to assign2-6
 

@@ -1,5 +1,5 @@
+(* ****** ****** *)
 #use "./../../classlib/OCaml/MyOCaml.ml";;
-
 (* ****** ****** *)
 
 let rec
@@ -36,7 +36,8 @@ fun work -> string_foreach(xs)(fun x -> work(fopr(x))))
 
 let
 foreach_to_map_list
-(foreach: ('xs, 'x0) foreach): ('xs, 'x0, 'y0) map_list =
+( foreach
+: ('xs, 'x0) foreach): ('xs, 'x0, 'y0) map_list =
 fun xs fopr ->
 list_make_fwork(fun work -> foreach(xs)(fun x -> work(fopr(x))))
 ;;

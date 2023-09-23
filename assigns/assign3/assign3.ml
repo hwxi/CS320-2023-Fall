@@ -80,6 +80,12 @@ of a given word.
 //
 let
 list_of_buddies(word: string): string list = ...
+
+(*
+FYI. The concept of word buddies is used in the following game:
+https://xanadu-lang.github.io/xats2js/docgen/CodeBook/Doublet/2020-11-29/
+https://github.com/xanadu-lang/xats2js/tree/master/docgen/CodeBook/Doublet
+*)
 *)
 
 (* ****** ****** *)
