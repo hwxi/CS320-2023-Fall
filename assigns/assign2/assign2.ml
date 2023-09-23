@@ -3,7 +3,10 @@
 //
 Assign2: datatypes and more loops
 //
-Total:
+DUE: the 27th of September, 2023
+//
+Total: 80 point
+(OCaml: 40 points)(Python: 40 points)
 //
 Except for the basic arithmetic functions
 (including those on chars), you may only use
