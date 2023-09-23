@@ -88,7 +88,9 @@ class fnlist_cons(fnlist):
 
 ####################################################
 def fnlist_sing(x0):
-    return fnlist_cons(x0, fnlist_nil())
+    res = fnlist_nil()
+    res = fnlist_cons(x0, res)
+    return res
 ####################################################
 def fnlist_print(xs):
     nx = 0
