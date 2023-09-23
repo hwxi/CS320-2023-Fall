@@ -14,9 +14,11 @@ fun work ->
 list_iforeach([1;2;3;4;5])(fun i x -> work(i, x)))
 ;;
 (* ****** ****** *)
-let _ =
+let () =
+assert
+(
 list_forall
-(ixs)(fun ix -> let (i, x) = ix in i+1 = x);;
+(ixs)(fun ix -> let (i, x) = ix in i+1 = x));;
 (* ****** ****** *)
 let () = print_string("Assign2-3-test passed!\n");;
 (* ****** ****** *)
