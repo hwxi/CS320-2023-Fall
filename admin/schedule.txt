@@ -1,0 +1,49 @@
+################################################
+lecture-09-05:
+Essence of functional programming:
+names vs. (mutable) variables
+functions are first-class values
+################################################
+lecture-09-07:
+Recursion and Tail-recursion
+Loops are tail-recursive functions
+################################################
+lecture-09-12:
+Higher-order functions
+Loops are second-order
+Loop transformers are third-order
+################################################
+lecture-09-14:
+Mutual recursion
+More loops and loop transformers
+################################################
+lecture-09-19: Quiz1
+################################################
+lecture-09-21:
+Datatypes and Pattern Matching
+Encoding functional lists in Python
+################################################
+lecture-09-26:
+More list-processing
+(e.g., merge-sorting)
+More list-combinators
+(e.g., map, zip, cross)
+################################################
+lecture-09-28:
+lazy-evaluation and streams (I)
+################################################
+lecture-10-03:
+lazy-evaluation and streams (II)
+################################################
+lecture-10-05: Quiz2
+################################################
+lecture-10-10: (Monday's schedule)
+################################################
+lecture-10-12:
+Continuation/Generators(Python) (I)
+################################################
+lecture-10-17:
+Continuation/Generators(Python) (II)
+################################################
+lecture-10-19: Midterm
+################################################
