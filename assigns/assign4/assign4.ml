@@ -6,7 +6,7 @@ Lazy-evaluation and streams
 //
 DUE: the 11th of October, 2023
 //
-Total: 70 points
+Total: 50 points
 //
 Except for the basic arithmetic functions
 (including those on chars), you may only use
@@ -54,9 +54,36 @@ let theNatPairs: (int*int) stream = fn () => ...
 
 (* ****** ****** *)
 
+type 'a gtree =
+| GTnil | GTcons of 'a * ('a gtree list)
+
+(* ****** ****** *)
+
 (*
 //
 Assign4-3:
+//
+HX-2023-10-05: 10 points
+//
+Please enumerate a gtree in the manner of
+depth-first search:
+//
+let rec (* 5 points *)
+gtree_streamize_dfs(xs: 'a gtree): 'a stream
+//
+Please enumerate a gtree in the manner of
+breadth-first search:
+//
+let rec (* 5 points *)
+gtree_streamize_bfs(xs: 'a gtree): 'a stream
+//
+*)
+
+(* ****** ****** *)
+
+(*
+//
+Assign4-4:
 //
 HX-2023-10-05: 20 points
 //
