@@ -6,7 +6,7 @@ Combinator-based programming
 //
 DUE: the 4th of October, 2023
 //
-Total: 70 points
+Total: 50 points + 30 bonus points
 //
 Except for the basic arithmetic functions
 (including those on chars), you may only use
@@ -17,6 +17,30 @@ the functions in classlib/OCaml/MyOCaml.ml
 
 (*
 Assign3-1:
+HX-2023-09-26: 10 points
+A matrix can be represented as a list of lists.
+For instance, [[1;2;3];[4;5;6];[7;8;9]] represents
+the following 3x3 square matrix:
+1 2 3
+4 5 6
+7 8 9
+Please implement matrix_transpose that returns
+the transpose of a given matrix:
+let rec
+matrix_transpose(xss: 'a list list): 'a list list
+For instance, the transpose of the above matrix
+is given as follows:
+1 4 7
+2 5 8
+3 6 9
+You are allowed to define recursive functions to
+solve this problem.
+*)
+
+(* ****** ****** *)
+
+(*
+Assign3-2:
 HX-2023-09-26: 10 points
 //
 The function [list_subsets]
@@ -45,7 +69,7 @@ of a set is insignificant. For instance, [1,2] and
 (* ****** ****** *)
 
 (*
-Assign3-2:
+Assign3-3:
 HX-2023-09-26: 10 points
 //
 The function [list_nchoose(xs)(n0)]
@@ -67,7 +91,7 @@ and [2;1] are DIFFERENT.
 (* ****** ****** *)
 
 (*
-Assign3-3:
+Assign3-4:
 HX-2023-09-26: 20 points
 Given a word x of length n, another word is a buddy
 of x if x and y differ exactly at one position. For
@@ -91,8 +115,8 @@ https://github.com/xanadu-lang/xats2js/tree/master/docgen/CodeBook/Doublet
 (* ****** ****** *)
 (*
 //
-Assign3-4:
-HX-2023-09-28: 30 points
+Assign3-5:
+HX-2023-09-28: 30 points (bonus)
 //
 Here is an implementation of the famous 8-queen puzzle:
 https://ats-lang.sourceforge.net/DOCUMENT/INT2PROGINATS/HTML/x631.html
