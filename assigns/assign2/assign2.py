@@ -1,7 +1,12 @@
 ########################################################################
-# (*
-# Assign2: Higher-order programming in Python
-# *)
+# Assign2:
+# //
+# DUE: the 27th of September, 2023
+# //
+# Total: 80 point
+# (OCaml: 40 points)(Python: 40 points)
+########################################################################
+# Higher-order programming in Python
 ########################################################################
 #
 # Assign2-5: 20 points
