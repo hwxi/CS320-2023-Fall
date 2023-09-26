@@ -3,6 +3,15 @@ exception Done
 exception True
 exception False
 (* ****** ****** *)
+exception DivideByZero;;
+(* ****** ****** *)
+
+let
+intdiv(x:int)(y:int): int =
+if y = 0
+then raise DivideByZero else x/y
+
+(* ****** ****** *)
 
 let rec
 list_mul0(xs: int list): int =
@@ -15,18 +24,29 @@ list_mul1(xs: int list): int =
 match xs with
 | [] -> 1
 | x1 :: xs ->
-  if x1 = 0 then 0 else list_mul1(xs)
+  if x1 = 0 then 0 else x1 * list_mul1(xs)
+
+(* ****** ****** *)
 
 exception Zero
 
 let rec
 list_mul2(xs: int list): int =
-try
+
+let
+rec
+helper(xs: int list): int =
 match xs with
 | [] -> 1
 | x1 :: xs ->
-  if x1 = 0 then raise Zero else list_mul2(xs)
-with Zero -> 0
+if
+(x1 = 0)
+then
+raise Zero else x1 * helper(xs)
+
+in
+  try helper(xs) with Zero -> 0
+;;
 
 (* ****** ****** *)
 

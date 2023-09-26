@@ -11,6 +11,15 @@ type 'a option = None | Some of 'a
 
 (* ****** ****** *)
 
+(*
+Monadic style of error-handling
+*)
+let
+intdiv(x:int)(y:int): int option =
+  if y = 0 then None else Some(x / y)
+
+(* ****** ****** *)
+
 let
 foreach_to_mapopt_list(foreach) =
 fun xs fopr ->
