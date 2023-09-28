@@ -22,4 +22,15 @@ list_make_fwork
 ;;
 (* ****** ****** *)
 
+let xs = [1;2;3;4;5]
+let ys = [1,2;3,4;5,6]
+let xys = list_cross(xs)(ys)
+let ( ) =
+list_foreach(xys)
+(fun(x,y) -> Printf.printf
+    ("(x, y) = (%i, (%i, %i))\n")
+    (x) (let (y1, y2) = y in y1) (let (y1, y2) = y in y2))
+
+(* ****** ****** *)
+
 (* end of [lecture-09-28-cross_list.ml] *)  
