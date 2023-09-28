@@ -3,7 +3,7 @@
 # //
 # DUE: the 27th of September, 2023
 # //
-# Total: 80 point
+# Total: 80 points
 # (OCaml: 40 points)(Python: 40 points)
 ########################################################################
 # Higher-order programming in Python

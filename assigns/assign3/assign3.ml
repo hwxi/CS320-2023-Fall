@@ -6,7 +6,8 @@ Combinator-based programming
 //
 DUE: the 4th of October, 2023
 //
-Total: 50 points + 30 bonus points
+Total: 80 points + 30 bonus points
+(OCaml: 50+30 points)(Python: 30 points)
 //
 Except for the basic arithmetic functions
 (including those on chars), you may only use
