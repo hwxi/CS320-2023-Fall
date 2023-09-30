@@ -35,5 +35,8 @@ list_make_fwork
      int1_foreach(6)
      (fun i -> int1_foreach(10)(fun _ -> work(i+1)))));;
 (* ****** ****** *)
+let () = print_string("Assign3-3-test passed!\n")
+;;
+(* ****** ****** *)
 
 (* end of [CS320-2023-Fall-assign3-3-test.sml] *)
