@@ -77,7 +77,7 @@ The function [list_nchoose(xs)(n0)]
 returns all the subsequences of xs that are
 of length n0.
 //
-let rec
+let
 list_nchoose
 (xs: 'a list)(n0: int): 'a list list =
 //
