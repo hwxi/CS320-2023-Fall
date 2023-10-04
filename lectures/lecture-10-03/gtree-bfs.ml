@@ -1,4 +1,8 @@
 (* ****** ****** *)
+(*
+** This is an example of streamization
+*)
+(* ****** ****** *)
 
 type 'a strcon =
   StrNil

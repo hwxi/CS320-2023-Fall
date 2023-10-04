@@ -5,7 +5,7 @@
 let rec
 stream_map
 (fxs: 'a stream)
-(fopr: 'a -> 'b): 'b stream = fun () ->
+(fopr: 'a -> 'b): 'b stream = fun () -> (* full laziness *)
 match fxs() with
 |
 StrNil -> StrNil
