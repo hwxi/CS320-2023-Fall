@@ -109,6 +109,51 @@ def fnlist_reverse(xs):
         res = fnlist_cons(x1, res)
     return res
 ####################################################
+
+def foreach_to_get_at(foreach):
+    res = [None]
+    class FoundExn(Exception):
+        pass
+    def get_at(xs, i0):
+        i1 = 0
+        def work_func(x0):
+            nonlocal i1
+            if i1 != i0:
+                i1 += 1
+            else:
+                res[0] = x0
+                raise FoundExn
+        try:
+            if i0 < 0:
+                raise IndexError
+            else:
+                foreach(xs, work_func)
+        except FoundExn:
+            return res[0]
+    return get_at # foreach-function is turned into get_at-function
+
+####################################################
+
+def foreach_to_iforall(foreach):
+    class FalseExn(Exception):
+        pass
+    def iforall(xs, itest_func):
+        i0 = 0
+        def work_func(x0):
+            nonlocal i0
+            if itest_func(i0, x0):
+                i0 = i0 + 1
+                return None
+            else:
+                raise FalseExn
+        try:
+            foreach(xs, work_func)
+            return True
+        except FalseExn:
+            return False
+    return iforall # foreach-function is turned into forall-function
+
+####################################################
 #
 # HX-2023-10-06: Lazy-evaluation and streams
 #
