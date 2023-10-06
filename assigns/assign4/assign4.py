@@ -53,11 +53,10 @@
 #
 # Assign4-6:
 #
-# HX-2023-10-06: 30 points
+# HX-2023-10-06: 30 points (bonus)
 #
 # (*
 # //
-# HX-2023-03-31: 20 points
 # Please implement the following function
 # that enumerates all the pairs (i, j) of natural
 # numbers satisfying $i <= j$; a pair (i1, j1) must

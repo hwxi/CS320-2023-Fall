@@ -6,8 +6,9 @@ Lazy-evaluation and streams
 //
 DUE: the 17th of October, 2023
 //
-Total: 100 points
-50 points (OCaml) + 50 points (Python)
+Total: 110 points
+50~points(OCaml)+
+60~points(Python)(including 30 bonus pts)
 //
 Except for the basic arithmetic functions
 (including those on chars), you may only use
