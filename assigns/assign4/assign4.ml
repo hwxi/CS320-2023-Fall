@@ -4,9 +4,10 @@
 Assign4:
 Lazy-evaluation and streams
 //
-DUE: the 11th of October, 2023
+DUE: the 17th of October, 2023
 //
-Total: 50 points
+Total: 100 points
+50 points (OCaml) + 50 points (Python)
 //
 Except for the basic arithmetic functions
 (including those on chars), you may only use
@@ -31,7 +32,7 @@ The 3rd item in the stream equals 1 - 1/2 + 1/3
 The 4th item in the stream equals 1 - 1/2 + 1/3 - 1/4
 And so on, and so forth
 //
-let the_ln2_stream: real stream = fun() -> ...
+let the_ln2_stream: float stream = fun() -> ...
 //
 *)
 

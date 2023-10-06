@@ -109,5 +109,87 @@ def fnlist_reverse(xs):
         res = fnlist_cons(x1, res)
     return res
 ####################################################
+#
+# HX-2023-10-06: Lazy-evaluation and streams
+#
+###########################################################################
+
+class strcon:
+    ctag = -1
+    def get_ctag(self):
+        return self.ctag
+# end-of-class(strcon)
+
+class strcon_nil(strcon):
+    def __init__(self):
+        self.ctag = 0
+        return None
+# end-of-class(strcon_nil)
+
+class strcon_cons(strcon):
+    def __init__(self, cons1, cons2):
+        self.ctag = 1
+        self.cons1 = cons1
+        self.cons2 = cons2
+        return None
+    def get_cons1(self):
+        return self.cons1
+    def get_cons2(self):
+        return self.cons2
+# end-of-class(strcon_cons)
+
+###########################################################################
+
+def stream_foreach(fxs, work):
+    while(True):
+        cxs = fxs()
+        if (cxs.ctag == 0):
+            break
+        else:
+            work(cxs.cons1)
+            fxs = cxs.cons2
+        # end-of-(if(cxs.ctag==0)-then-else)
+    return None # end-of-(stream_foreach)
+
+def stream_get_at(fxs, i0):
+    while(True):
+        cxs = fxs()
+        if (cxs.ctag == 0):
+            raise IndexError
+        else:
+            if i0 <= 0:
+                return cxs.cons1
+            else:
+                i0 = i0 - 1
+                fxs = cxs.cons2
+    return None # This is deadcode
+
+###########################################################################
+
+def stream_tabulate(n0, fopr):
+    def helper1(i0):
+        return strcon_cons(fopr(i0), lambda: helper1(i0+1))
+    def helper2(i0):
+        if i0 >= n0:
+            return strcon_nil()
+        else:
+            return strcon_cons(fopr(i0), lambda: helper2(i0+1))
+        # end-of-(if(i0 >= n0)-then-else)
+    if n0 < 0:
+        return lambda: helper1(0)
+    else:
+        return lambda: helper2(0)
+    # end-of-(if(n0 < 0)-then-else)
+    
+###########################################################################
+
+def string_streamize(xs):
+    return stream_tabulate(len(xs), lambda i0: xs[i0])
+def pylist_streamize(xs):
+    return stream_tabulate(len(xs), lambda i0: xs[i0])
+def pytuple_streamize(xs):
+    return stream_tabulate(len(xs), lambda i0: xs[i0])
+
+###########################################################################
 
 ############### end of [CS320-2023-Fall-classlib-MyPython.py] ###############
