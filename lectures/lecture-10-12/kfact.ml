@@ -9,18 +9,15 @@ let
 rec
 kfact
 (n: int)(k: int -> 'ans): 'ans =
-if n > 0 then
-kfact(n-1)(fun res -> k(n * res)) else k(1)
+if
+n = 0
+then k(1)
+else kfact(n-1)(fun res -> k(n * res))
 ;;
 (* ****** ****** *)
 
 let () =
-kfact(10)(fun res -> Printf.printf "res = %i\n" res)
-;;
+kfact(10)(fun res -> Printf.printf "fact(10) = %i\n" res)
+
 (* ****** ****** *)
 
-let () =
-Printf.printf
-"kfact(10)(fun res -> res) = %i\n" (kfact(10)(fun res->res))
-;;
-(* ****** ****** *)
