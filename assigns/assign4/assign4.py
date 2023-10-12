@@ -69,6 +69,21 @@
 # //
 # *)
 #
+# Your implementation of theNatPairs_cubesum should
+# return a generator corresponding to the OCaml stream
+# If you have already implement a stream in Python, you
+# turn it into a generator by calling the following fun:
+#
+# def generator_of_stream(fxs):
+#     while True:
+#         cxs = fxs()
+#         if cxs.ctag == 0:
+#             break
+#         else:
+#             fxs = cxs.cons2
+#             yield cxs.cons1
+#     raise StopIteration
+#
 # def theNatPairs_cubesum(): # please give your implementation
 #
 ################################################
