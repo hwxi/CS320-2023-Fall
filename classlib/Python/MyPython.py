@@ -163,6 +163,8 @@ class strcon:
     ctag = -1
     def get_ctag(self):
         return self.ctag
+    def __iter__(self):
+        return strcon_iter(self)
 # end-of-class(strcon)
 
 class strcon_nil(strcon):
@@ -182,6 +184,22 @@ class strcon_cons(strcon):
     def get_cons2(self):
         return self.cons2
 # end-of-class(strcon_cons)
+
+###########################################################################
+
+class strcon_iter:
+    def __iter__(self):
+        return self
+    def __init__(self, itms):
+        self.itms = itms
+    def __next__(self):
+        if (self.itms.ctag==0):
+            raise StopIteration
+        else:
+            itm1 = self.itms.cons1
+            self.itms = self.itms.cons2()
+            return itm1
+    # end-of-[__next__]
 
 ###########################################################################
 
