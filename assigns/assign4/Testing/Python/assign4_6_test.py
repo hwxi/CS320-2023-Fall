@@ -16,7 +16,7 @@ def cube_sum(ij):
 ####################################################
 def theNatPairs_count(N):
     res = 0
-    for ij in theNatPairs_cubesum():
+    for ij in theNatPairs_cubesum()():
         if cube_sum(ij) < N:
             res += 1
         else:
