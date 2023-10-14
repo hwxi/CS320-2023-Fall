@@ -40,8 +40,7 @@ lecture-10-10: (Monday's schedule)
 lecture-10-12:
 Continuation/Generators(Python) (I)
 ################################################
-lecture-10-17:
-Continuation/Generators(Python) (II)
+lecture-10-17: Review
 ################################################
 lecture-10-19: Midterm
 ################################################
