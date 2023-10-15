@@ -40,6 +40,17 @@ type 'a option =
 type 'a list =
   Nil | Cons of 'a * 'a list
 
+let
+option_length(xs) =
+  None -> -
+| Some _ -> 1
+
+let rec
+list_length(xs) =
+  Nil -> -
+| Cons(_, xs) ->
+  1 + list_length(xs)
+
 ## Option-based error handling
 
 ## Exception-based error handling
