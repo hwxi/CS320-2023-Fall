@@ -508,7 +508,7 @@ match fxs() with
 (* ****** ****** *)
 
 let rec
-stream_concat
+stream_concat_list
 (fxss: 'a stream list): 'a stream =
 match fxss with
 | [] -> fun() -> StrNil
