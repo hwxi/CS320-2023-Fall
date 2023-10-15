@@ -512,7 +512,7 @@ stream_concat_list
 (fxss: 'a stream list): 'a stream =
 match fxss with
 | [] -> fun() -> StrNil
-| fxs1 :: fxss -> stream_append(fxs1)(stream_concat(fxss))
+| fxs1 :: fxss -> stream_append(fxs1)(stream_concat_list(fxss))
 ;;
 (* ****** ****** *)
 
