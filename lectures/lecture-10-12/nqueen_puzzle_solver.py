@@ -48,7 +48,7 @@ def nqueen(bd):
     return res
 def board_safety_all(bd):
     return \
-        int1_forall\
+        int1_forall \
         (nqueen(bd), \
          lambda i0: board_safety_one(bd, i0))
 def board_safety_one(bd, i0):
