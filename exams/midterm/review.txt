@@ -8,7 +8,7 @@
 
 Variables are mutable,
 but Names are immutable;
-like consts in C++; like 'final' in Java
+like 'const' in C++; like 'final' in Java
 
 ################################################
 
