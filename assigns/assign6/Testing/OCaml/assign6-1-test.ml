@@ -16,7 +16,7 @@ let test3 = sexpr_to_string(SMul [SAdd [SInt 1; SInt 2]; SInt 3; SMul [SInt 1; S
 let () = assert(test3 = "(mul (add 1 2) 3 (mul 1 2 3))")
 let () = assert(sexpr_parse(test3) = Some (SMul [SAdd [SInt 1; SInt 2]; SInt 3; SMul [SInt 1; SInt 2; SInt 3]]))
 
-​(* ****** ****** *)
+(* ****** ****** *)
 
 let test4 = sexpr_parse("(add 1 2))")
 let () = assert(test4 = None)
