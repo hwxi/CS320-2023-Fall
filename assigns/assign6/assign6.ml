@@ -27,14 +27,14 @@ let sexpr_parse     (s : string) : sexpr option = ...
 //
 
 Example (Accepted Strings):
-parse "(add 1 2 3)" = Some (Add [Int 1; Int 2; Int 3])
-parse "(mul (add 1 2) 3 (mul 1))" = Some (Mul [Add [Int 1; Int 2]; Int 3; Mul [Int 1]])
+sexpr_parse "(add 1 2 3)" = Some (SAdd [SInt 1; SInt 2; Int 3])
+sexpr_parse "(mul (add 1 2) 3 (mul 1))" = Some (SMul [SAdd [SInt 1; SInt 2]; SInt 3; SMul [SInt 1]])
 //
 Example (Rejected Strings):
-parse "()" = None
-parse "(add)" = None
-parse "(add 1 2))" = None
-parse "((mul 1 2)" = None
+sexpr_parse "()" = None
+sexpr_parse "(add)" = None
+sexpr_parse "(add 1 2))" = None
+sexpr_parse "((mul 1 2)" = None
 //
 *)
 
