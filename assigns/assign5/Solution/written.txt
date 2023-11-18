@@ -1,0 +1,50 @@
+Question 1.
+
+<expr> = <expr> + <expr>
+       = <expr> + <expr> * <expr>
+       = <expr> + <expr> * -<int>
+       = <expr> + <expr> * -<nat>
+       = <expr> + <expr> * -<digit><nat>
+       = <expr> + <expr> * -<digit><digit>
+       = <expr> + <expr> * -<digit>7
+       = <expr> + <expr> * -07
+       = <expr> + <int> * -07
+       = <expr> + <nat> * -07
+       = <expr> + <digit> * -07
+       = <expr> + 2 * -07
+       = <int> + 2 * -07
+       = <nat> + 2 * -07
+       = <digit><nat> + 2 * -07
+       = <digit><digit> + 2 * -07
+       = <digit>2 + 2 * -07
+       = 12 + 2 * -07
+
+
+Question 2.
+
+<stmt> = for <id> = <expr> to <expr> do <stmt>
+       = for <letter> = <expr> to <expr> do <stmt>
+       = for x = <expr> to <expr> do <stmt>
+       = for x = <int> to <expr> do <stmt>
+       = for x = -<nat> to <expr> do <stmt>
+       = for x = -<digit><nat> to <expr> do <stmt>
+       = for x = -1<nat> to <expr> do <stmt>
+       = for x = -1<digit> to <expr> do <stmt>
+       = for x = -12 to <expr> do <stmt>
+       = for x = -12 to <int> do <stmt>
+       = for x = -12 to <nat> do <stmt>
+       = for x = -12 to <digit><nat> do <stmt>
+       = for x = -12 to 1<nat> do <stmt>
+       = for x = -12 to 1<digit> do <stmt>
+       = for x = -12 to 10 do <stmt>
+       = for x = -12 to 10 do { <stmts> }
+       = for x = -12 to 10 do { <stmt>; <stmts> }
+       = for x = -12 to 10 do { <id> = <expr>; <stmts> }
+       = for x = -12 to 10 do { <letter> = <expr>; <stmts> }
+       = for x = -12 to 10 do { y = <expr>; <stmts> }
+       = for x = -12 to 10 do { y = <int>; <stmts> }
+       = for x = -12 to 10 do { y = <nat>; <stmts> }
+       = for x = -12 to 10 do { y = <digit>; <stmts> }
+       = for x = -12 to 10 do { y = 0; <stmts> }
+       = for x = -12 to 10 do { y = 0; <stmt> }
+       = for x = -12 to 10 do { y = 0; pass }
